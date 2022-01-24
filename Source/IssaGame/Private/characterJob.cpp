@@ -11,7 +11,7 @@ UcharacterJob::UcharacterJob()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
-	commandJob = CAPTAIN;
+	job_ = ASSISTANT;
 }
 
 
@@ -33,3 +33,18 @@ void UcharacterJob::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 	// ...
 }
 
+void UcharacterJob::setJob(TEnumAsByte<JobList> job)
+{
+	job_ = job;
+	jobCategoryList_ = categoryMap_[job_];
+}
+
+TEnumAsByte<JobList> UcharacterJob::getJob()
+{
+	return job_;
+}
+
+UcharacterJob::CategoryList UcharacterJob::getJobCategoryList()
+{
+	return jobCategoryList_;
+}
