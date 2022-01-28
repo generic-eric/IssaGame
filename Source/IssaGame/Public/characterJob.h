@@ -66,17 +66,19 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-	// type declaration for job category list
-	typedef std::vector<TEnumAsByte<JobCategory>> CategoryList;
-
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	// Function to set the job for this character
+	UFUNCTION(BlueprintCallable, Category = "Properties")
 	void setJob(TEnumAsByte<JobList> job);
 
+	// get the current character's job
+	UFUNCTION(BlueprintCallable, Category = "Properties")
 	TEnumAsByte<JobList> getJob();
 
+	// get the current list of categories that match this job
+	UFUNCTION(BlueprintCallable, Category = "Properties")
 	CategoryList getJobCategoryList();
 
 
