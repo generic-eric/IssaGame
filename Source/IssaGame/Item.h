@@ -29,5 +29,30 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
         USkeletalMesh* Mesh;
+
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+        void useItem();
 	
+};
+
+UCLASS(Blueprintable, BlueprintType)
+class ISSAGAME_API UItemData : public UObject
+{
+    GENERATED_BODY()
+
+public:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+        TSubclassOf<class UItem> itemRef;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+        int quantity;
+};
+
+UCLASS(Blueprintable, BlueprintType)
+class ISSAGAME_API UItemConsumeble : public UItem
+{
+    GENERATED_BODY()
+
+public:
+    void useItem();
 };

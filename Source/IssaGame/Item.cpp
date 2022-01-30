@@ -3,3 +3,8 @@
 
 #include "Item.h"
 
+/*No logic for the base class*/
+void UItem::useItem_Implementation()
+{
+    return;
+}
