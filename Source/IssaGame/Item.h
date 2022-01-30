@@ -16,6 +16,9 @@ class ISSAGAME_API UItem : public UObject
 
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
+        int ID;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
         FName Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
