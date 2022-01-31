@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Engine/DataTable.h"
 #include "Item.generated.h"
 
 /**
@@ -15,8 +16,8 @@ class ISSAGAME_API UItem : public UObject
 	GENERATED_BODY()
 
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
-        int ID;
+    //UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    //   int ID;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
         FName Name;
@@ -30,11 +31,15 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
         USkeletalMesh* Mesh;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+        int maxStackSize;
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
         void useItem();
 	
 };
 
+/*
 UCLASS(Blueprintable, BlueprintType)
 class ISSAGAME_API UItemData : public UObject
 {
@@ -47,6 +52,18 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
         int quantity;
 };
+
+
+USTRUCT(BlueprintType)
+struct FItemDatabase : public FTableRowBase
+{
+    GENERATED_BODY()
+
+public:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+        TSubclassOf<class UItemData> itemDataRef;
+};
+*/
 
 UCLASS(Blueprintable, BlueprintType)
 class ISSAGAME_API UItemConsumeble : public UItem
